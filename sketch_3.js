@@ -47,20 +47,18 @@ const sketch = ({ canvas, update }) => {
         const x = lerp(margin, width - margin, u);
         const y = lerp(margin, height - margin, v);
         context.beginPath();
+
         context.rect(x - 120, y - 120, 180, 180);
         context.fillStyle = random.pick(random.pick(palettes));
         context.fill();
         context.closePath();
 
         context.beginPath();
-        context.rect(x - 70, y - 70, radius, radius);
+        context.arc(x - 60, y - 120, 20, 0, Math.PI * 2);
         context.fillStyle = random.pick(random.pick(palettes));
         context.fill();
         context.closePath();
       });
-    },
-    unload() {
-      mouse.dispose();
     },
   };
 };

@@ -6,35 +6,22 @@ const settings = {
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    context.fillStyle = "#112112";
+    context.fillStyle = "#f0efe1";
     context.fillRect(0, 0, width, height);
 
-    context.globalCompositeOperation = "screen";
+    context.globalCompositeOperation = "multiply";
     context.lineWidth = 38;
 
     var amplitude = rangeFloor(20, 30);
     var frequency = rangeFloor(30, 70);
     var colors = [
-      "#FFB713",
-      "#009F45",
-      "#FF3A5C",
-      "#4646DF",
-      "#F44918",
-      "#FEAC00",
-      "#FF5630",
-      "#396C7D",
-      "#83757D",
-      "#2C3F54",
-      "#F0F0EC",
-      "#2A2A41",
-      "#766B4F",
-      "#F4AAAB",
-      "#CF3B45",
-      "#4F94CF",
-      "#E51D20",
-      "#2C416E",
-      "#EE751A",
-      "#FECF1A",
+      "#b4a9d1",
+      "#5dbeb7",
+      "#e9a3b2",
+      "#2789ca",
+      "#ec9e2a",
+      "#de5460",
+      "#6672b5",
     ];
 
     let x = 0;
@@ -49,7 +36,6 @@ const sketch = () => {
       let waveY = -10;
       context.beginPath();
       while (waveY < height + 1080) {
-        // Draw a very short line to the next point output by the sine function
         let waveX = x + amplitude * Math.sin(waveY / frequency);
         context.lineTo(waveX, waveY);
         waveY++;
@@ -60,7 +46,7 @@ const sketch = () => {
 
     function rangeFloor(min, max) {
       // Return a random whole number between min and max
-      return Math.floor(Math.random() * (max - min) + min);
+      return Math.floor(Math.random() * max + min);
     }
 
     function pick(array) {
