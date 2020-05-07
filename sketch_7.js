@@ -1,4 +1,6 @@
 const canvasSketch = require("canvas-sketch");
+const random = require("canvas-sketch-util/random");
+const palettes = require("nice-color-palettes");
 
 const settings = {
   dimensions: [1080, 1080],
@@ -6,13 +8,13 @@ const settings = {
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    context.fillStyle = "#b3cdea";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#b3cdea";
     context.fillRect(0, 0, 540, 540);
-    context.fillStyle = "#dfd365";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#dfd365";
     context.fillRect(540, 0, 540, 540);
-    context.fillStyle = "#ea6e56";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#ea6e56";
     context.fillRect(0, 540, 540, 540);
-    context.fillStyle = "#f5c67f";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#f5c67f";
     context.fillRect(540, 540, 540, 540);
 
     //Triangle
@@ -28,12 +30,12 @@ const sketch = () => {
     context.rotate((Math.PI / 180) * 90);
     context.beginPath();
     context.arc(810, -1080, 270, 0, Math.PI);
-    context.fillStyle = "#be5ab8";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#be5ab8";
     context.fill();
     context.rotate((Math.PI / 180) * -90);
 
     //Square
-    context.fillStyle = "#efb6d4";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#efb6d4";
     context.fillRect(135, 405 + 270, 270, 270);
 
     //Heart
@@ -47,7 +49,7 @@ const sketch = () => {
     context.bezierCurveTo(130, 62.5, 130, 25, 100, 25);
     context.bezierCurveTo(85, 25, 75, 37, 75, 40);
 
-    context.fillStyle = "#f1ac7a";
+    context.fillStyle = random.pick(random.pick(palettes)); //"#f1ac7a";
     context.fill();
   };
 };
