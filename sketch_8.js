@@ -1,5 +1,4 @@
 const canvasSketch = require("canvas-sketch");
-const { lerp } = require("canvas-sketch-util/math");
 const random = require("canvas-sketch-util/random");
 
 const settings = {
@@ -10,11 +9,10 @@ const settings = {
 const sketch = () => {
   return ({ context, width, height }) => {
     //background
-    context.fillStyle = "hsl(0, 0%, 98%)";
-    context.fillRect(0, 0, width, height);
+
     const fill = context.createLinearGradient(0, 0, width, height);
-    fill.addColorStop(0.8, "powderblue");
-    fill.addColorStop(1, "skyblue");
+    fill.addColorStop(0.5, "skyblue");
+    fill.addColorStop(1, "powderblue");
     context.fillStyle = fill;
     context.fillRect(0, 0, width * 2, height * 2);
 
@@ -28,6 +26,12 @@ const sketch = () => {
 
     var numberInFibonacciSeq = 9;
     var petals = fibonacci([0, 1], 20)[numberInFibonacciSeq];
+
+    //Stem
+    context.beginPath();
+    context.rect(495, 540, 90, 1000);
+    context.fillStyle = "#00bb00";
+    context.fill();
 
     drawPetals(petals);
     drawPistil();
