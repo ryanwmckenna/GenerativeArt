@@ -18,7 +18,6 @@ const sketch = () => {
     context.fillRect(540, 540, 540, 540);
 
     //Triangle
-
     context.beginPath();
     context.moveTo(540, 540);
     context.lineTo(0, 540);
