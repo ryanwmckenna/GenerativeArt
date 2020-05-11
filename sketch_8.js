@@ -52,8 +52,8 @@ const sketch = () => {
     }
 
     function drawPistil() {
-      for (var i = 1; i <= 500; i++) {
-        var r = 8 * Math.sqrt(i);
+      for (var i = 1; i <= 200; i++) {
+        var r = 14 * Math.sqrt(i);
 
         var angle = (Math.PI / 180) * 137.5 * i; // convert degree to radian
 
