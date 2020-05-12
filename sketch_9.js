@@ -23,7 +23,6 @@ const sketch = () => {
         const X = count <= 1 ? 0.5 : x / (count - 1);
         const V = count <= 1 ? 0.5 : y / (count - 1);
         points.push({
-          color: random.pick(["#00000", "#CCCCCC"]),
           radius: random.pick([10, 20, 30]),
           rotation: random.pick([0, Math.PI * 0.5, Math.PI, Math.PI * 1.5]),
           position: [X, V],
@@ -88,7 +87,7 @@ const sketch = () => {
 
     console.log(points);
     points.forEach((data) => {
-      const { color, radius, rotation, position } = data;
+      const { rotation, position } = data;
       const [u, v] = position;
       const x = lerp(margin, width - margin, u);
       const y = lerp(margin, height - margin, v);
