@@ -27,5 +27,8 @@ Using [mattdesl/canvas-sketch](https://github.com/mattdesl/canvas-sketch)
   <div class="column" style="flex: 20%"; padding: 5px>
     <img src="https://github.com/ryanwmckenna/GenerativeArt/blob/master/renders/0008.png" alt="0008" width="200" height="200">
   </div>
+    <div class="column" style="flex: 20%"; padding: 5px>
+    <img src="https://github.com/ryanwmckenna/GenerativeArt/blob/master/renders/0009.png" alt="0009" width="200" height="200">
+  </div>
   
 </div>
