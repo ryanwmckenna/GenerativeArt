@@ -49,7 +49,7 @@ const sketch = () => {
     context.fill();
   };
 
-  const drawTri = (context, rotation) => {
+  const drawTri = (context) => {
     context.rotate(rotation);
     context.beginPath();
     context.moveTo(120, 120);
@@ -92,13 +92,12 @@ const sketch = () => {
       const x = lerp(margin, width - margin, u);
       const y = lerp(margin, height - margin, v);
       context.save();
-      context.fillStyle = color;
       context.translate(x, y);
 
       const randomValue = random.value();
 
       if (randomValue <= 0.2) {
-        drawTri(context, rotation);
+        drawTri(context);
       } else if (randomValue >= 0.2 && randomValue <= 0.4) {
         drawRectAlt(context);
       } else if (randomValue >= 0.4 && randomValue <= 0.6) {

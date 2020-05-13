@@ -1,6 +1,7 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
 const palettes = require("nice-color-palettes");
+const { lerp } = require("canvas-sketch-util/math");
 
 const settings = {
   dimensions: [1080, 1080],
@@ -9434,32 +9435,58 @@ const drawMe = (context) => {
 
 const sketch = () => {
   return ({ context, width, height }) => {
-    const fill = context.createLinearGradient(0, 0, width, height); // Gradient foreground
-    fill.addColorStop(0.0, random.pick(niceColours));
+    const createGrid = () => {
+      const points = [];
+      const count = 4;
+      for (let x = 0; x < count; x++) {
+        for (let y = 0; y < count; y++) {
+          const u = x / (count - 1);
+          const v = y / (count - 1);
 
-    fill.addColorStop(1.0, random.pick(niceColours));
+          points.push({
+            position: [u, v],
+            radius: 25,
+          });
+        }
+      }
+      return points;
+    };
 
-    context.fillStyle = fill;
-    context.fillRect(0, 0, 1080, 1080);
+    const points = createGrid();
+    const margin = 0;
+
+    points.forEach((point) => {
+      const { position } = point;
+      const [u, v] = position;
+
+      const x = lerp(margin, width - margin, u);
+      const y = lerp(margin, height - margin, v);
+
+      context.beginPath();
+      context.rect(x, y, 350, 350);
+      context.fillStyle = random.pick(random.pick(palettes));
+      context.fill();
+      context.closePath();
+    });
 
     context.globalCompositeOperation = "multiply";
     context.translate(40, 20);
     drawMe(context);
-    context.translate(375, 0);
+    context.translate(365, 0);
     drawMe(context);
-    context.translate(375, 0);
+    context.translate(365, 0);
     drawMe(context);
-    context.translate(0, 375);
+    context.translate(0, 365);
     drawMe(context);
-    context.translate(-375, 0);
+    context.translate(-365, 0);
     drawMe(context);
-    context.translate(-375, 0);
+    context.translate(-365, 0);
     drawMe(context);
-    context.translate(0, 375);
+    context.translate(0, 365);
     drawMe(context);
-    context.translate(375, 0);
+    context.translate(365, 0);
     drawMe(context);
-    context.translate(375, 0);
+    context.translate(365, 0);
     drawMe(context);
   };
 };
